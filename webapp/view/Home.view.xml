@@ -1,10 +1,73 @@
 <mvc:View controllerName="tripmanagement.tripmanagement.controller.Home"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
-    xmlns="sap.m">
+    xmlns="sap.m"
+    xmlns:fb="sap.ui.comp.filterbar">
     <Page id="page" title="{i18n>title}">
 
         <content>
-         <Button icon="sap-icon://synchronize" text="Refresh" class="sapUiSmallMarginBegin" press="onRefresh" />
+        <HBox justifyContent="End" height="15%">
+         <Button icon="sap-icon://log" text="Log in" class="sapUiSmallMarginBegin" press="onRefresh" />
+         </HBox>
+         <HBox height="25%">
+         <VBox>
+         	<Label text="Da" labelFor="productInput" />
+		<Input 
+			id="partenza"
+			placeholder="Partenza"
+			showSuggestion="true"
+			showValueHelp="true"
+			valueHelpRequest=".onValueHelpRequest"
+            >
+			<!-- <suggestionItems>
+				<core:Item text="{Name}" />
+			</suggestionItems> -->
+			
+		</Input>
+        <DatePicker
+					id="DP8"
+					placeholder="Data"
+					change="handleChange"
+					class="sapUiSmallMarginBottom"
+					showFooter="true"/>
+        <CheckBox text="Ritorno" />
+         </VBox>
+         <VBox>
+         <Label text="A" labelFor="productInput" />
+		<Input 
+			id="arrivo"
+			placeholder="Arrivo"
+			showSuggestion="true"
+			showValueHelp="true"
+			valueHelpRequest=".onValueHelpRequest"
+            >
+			<!-- <suggestionItems>
+				<core:Item text="{Name}" />
+			</suggestionItems> -->
+			
+		</Input>
+        <TimePicker	id="timePicker" />
+         </VBox>
+        
+         <VBox>
+         <Panel headerText="Passegeri" width="15rem" class="sapUiResponsiveMargin" >
+         <Label text="Adulti" design="Bold" />
+            <StepInput class="leftDescription"	value="1"	min="1" max="20" />
+            <Label text="Bambini" design="Bold" />
+            <StepInput class="leftDescription" value="0"	min="0"	max="20" />
+            <HBox justifyContent="Center" height="35%">
+            <Button icon="sap-icon://car-rental" text="Cerca Viaggi" class="sapUiSmallMarginBegin" press="onCercaViaggi" />
+            <Button icon="sap-icon://reset" text="Annulla" class="sapUiSmallMarginBegin" press="onAnnulla" />
+            </HBox>
+            </Panel>
+         </VBox>
+         <VBox>
+         <Image	src="https://i.ibb.co/55PW6nC/ILLO-BUS-01-2229.gif" >
+         </Image>
+         </VBox>
+         </HBox>
+         <HBox justifyContent="Center" height="35%">
+         <!-- <Image	src="https://i.ibb.co/55PW6nC/ILLO-BUS-01-2229.gif" ></Image> -->
+         </HBox>
          </content>
     </Page>
 </mvc:View>

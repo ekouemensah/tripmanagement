@@ -1,1 +1,9 @@
 /* Enter your custom styles here */
+.leftDescription .sapMStepInputInner {
+    display: flex;
+    align-items: center;
+}
+
+.leftDescription .sapMStepInputDescriptionWrapper {
+    margin-right: 1rem; /* Adjust the margin according to your preference */
+}
