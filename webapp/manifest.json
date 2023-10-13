@@ -99,6 +99,13 @@
           "target": [
             "TargetHome"
           ]
+        },
+        {
+          "name": "RouteTrip",
+          "pattern": "RouteTrip/{DataPartenza},{OraPartenza}",
+          "target": [
+            "TargetTrip"
+          ]
         }
       ],
       "targets": {
@@ -108,6 +115,13 @@
           "clearControlAggregation": false,
           "viewId": "Home",
           "viewName": "Home"
+        },
+        "TargetTrip": {         
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Trip",
+          "viewName": "Trip"
         }
       }
     },

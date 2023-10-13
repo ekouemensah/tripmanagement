@@ -1,0 +1,74 @@
+<mvc:View controllerName="tripmanagement.tripmanagement.controller.Trip"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:t="sap.ui.table"
+    xmlns:fb="sap.ui.comp.filterbar">
+    <Page id="page" title="{i18n>title}">
+
+        <content>
+        <t:Table id="tbTrip" width="auto" rows="{path:'/TripSet', templateShareable:true, events:{dataReceived:'.onTbPODataReceived'}}" selectionMode="None" visibleRowCount="15" rowActionCount="1" threshold="500" enableBusyIndicator="true">
+                    <t:toolbar>
+                        <OverflowToolbar width="auto" height="30px" design="Transparent" visible="true" enabled="true">
+                            <content>
+                                <Title text="Viaggi" titleStyle="Auto" width="auto" textAlign="Begin" visible="true" wrapping="false" />
+                                <ToolbarSpacer width="" />
+                               
+                            </content>
+                        </OverflowToolbar>
+                    </t:toolbar>
+                    <t:columns>                       
+                        <t:Column>
+                            <Label text="{i18n>Ora Partenza}" wrapping="true"  />
+                            <t:template>
+                                <Text text="{OraPartenza}" wrapping="true" class="bigChar"/>
+                            </t:template>
+                        </t:Column>
+                        <t:Column>
+                            <Label text="{i18n>Da}" wrapping="true" />
+                            <t:template>
+                                <Text text="{Partenza}" wrapping="true" class="bigChar" />
+                            </t:template>
+                        </t:Column>
+                      
+                        <t:Column>
+                            <Label text="{i18n>Cambi}" wrapping="true"  />
+                            <t:template>
+                                <Text text="{Cambi}" wrapping="true" class="bigChar"/>
+                            </t:template>
+                        </t:Column>
+                        <t:Column>
+                            <Label text="{i18n>Prezzo}" wrapping="true" />
+                            <t:template>
+                                <Text text="{Prezzo}" wrapping="true" class="bigChar"/>
+                            </t:template>
+                        </t:Column>
+                        <t:Column>
+                            <Label text="{i18n>Arrivo}" wrapping="true" />
+                            <t:template>
+                                <Text text="{Arrivo}" wrapping="true" class="bigChar"/>
+                            </t:template>
+                        </t:Column>
+                        <t:Column>
+                            <Label text="{i18n>Data arrivo}" wrapping="true" />
+                            <t:template>
+                                <Text text="{DataArrivo}" wrapping="true" class="bigChar" />
+                            </t:template>
+                        </t:Column>  
+                        <t:Column>
+                            <Label text="{i18n>Ora arrivo}" wrapping="true" />
+                            <t:template>
+                              <Text text="{OraArrivo}" wrapping="true" class="bigChar" />
+                            </t:template>
+                        </t:Column>                      
+                    </t:columns>
+                    <t:rowActionTemplate>
+                        <t:RowAction>
+                            <t:items>
+                                <t:RowActionItem type="Navigation" press="onNavigatePress" visible="true" />                               
+                            </t:items>
+                        </t:RowAction>
+                    </t:rowActionTemplate>
+                </t:Table>
+         </content>
+    </Page>
+</mvc:View>

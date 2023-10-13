@@ -24,10 +24,11 @@
 			
 		</Input>
         <DatePicker
-					id="DP8"
+					id="DataPartenza"
 					placeholder="Data"
 					change="handleChange"
 					class="sapUiSmallMarginBottom"
+                    valueFormat="dd.MM.yyy"
 					showFooter="true"/>
         <CheckBox text="Ritorno" />
          </VBox>
@@ -45,7 +46,7 @@
 			</suggestionItems> -->
 			
 		</Input>
-        <TimePicker	id="timePicker" />
+        <TimePicker	id="OraPartenza" />
          </VBox>
         
          <VBox>
