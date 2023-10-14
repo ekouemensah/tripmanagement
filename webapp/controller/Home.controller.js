@@ -33,12 +33,12 @@ sap.ui.define([
                 // this.getOwnerComponent().getRouter().navTo("RouteTrip");
                 // this.getRouter().getTargets().display("Trip");
                 var start_date = this.byId("DataPartenza").getDateValue();
-                var dateFormat = sap.ui.core.format.DateFormat.getDateInstance({ pattern: "yyyy-MM-dd" });
+                var dateFormat = sap.ui.core.format.DateFormat.getDateInstance({ pattern: "yyyyMMdd" });
                 var date = new Date(start_date);
                 var dateStr = dateFormat.format(date);
 
                 var start_time = this.byId("OraPartenza").getDateValue();
-                var timeFormat = sap.ui.core.format.DateFormat.getDateInstance({ pattern: "hh:mm:ss" });
+                var timeFormat = sap.ui.core.format.DateFormat.getDateInstance({ pattern: "hhmmss" });
                 var time = new Date(start_time);
                 var timeStr = timeFormat.format(time);
                 this.getOwnerComponent().getRouter().navTo("RouteTrip", { DataPartenza: dateStr, OraPartenza: timeStr });

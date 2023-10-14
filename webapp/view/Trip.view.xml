@@ -6,6 +6,17 @@
     <Page id="page" title="{i18n>title}">
 
         <content>
+        <!-- <Toolbar>
+     <content> -->
+      <HBox>
+      <Image densityAware="false" id="imgId">
+       <layoutData>
+        <FlexItemData growFactor="1"/>
+       </layoutData>
+      </Image>
+     </HBox>
+       <!-- </content>
+     </Toolbar> -->
         <t:Table id="tbTrip" width="auto" rows="{path:'/TripSet', templateShareable:true, events:{dataReceived:'.onTbPODataReceived'}}" selectionMode="None" visibleRowCount="15" rowActionCount="1" threshold="500" enableBusyIndicator="true">
                     <t:toolbar>
                         <OverflowToolbar width="auto" height="30px" design="Transparent" visible="true" enabled="true">

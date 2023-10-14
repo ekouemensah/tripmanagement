@@ -106,7 +106,15 @@
           "target": [
             "TargetTrip"
           ]
+        },
+        {
+          "name": "RouteTripDetails",
+          "pattern": "RouteTripDetails/{ViaggioID}",
+          "target": [
+            "TargetTripDetails"
+          ]
         }
+
       ],
       "targets": {
         "TargetHome": {
@@ -122,6 +130,14 @@
           "clearControlAggregation": false,
           "viewId": "Trip",
           "viewName": "Trip"
+        }
+        ,
+        "TargetTripDetails": {         
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "TripDetails",
+          "viewName": "TripDetails"
         }
       }
     },
