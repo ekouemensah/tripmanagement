@@ -47,7 +47,7 @@ sap.ui.define([
                  var  allString = escape(JSON.stringify(Arr));
                    var url = baseURL + allString;
                    // setting final URL to image,which I have taken in view....
-                   this.byId("imgId").setSrc(url);
+                //    this.byId("imgId").setSrc(url);
 
                 var aFilters = [];
                 // var data = this.getParameter("arguments");

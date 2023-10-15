@@ -14,7 +14,7 @@
                 
                  <Panel headerText="Assegnazione Posto" width="15rem" class="sapUiResponsiveMargin" >  
                  <Label id="postoAssegnato" text="1A" />
-                 <Button id="posto" icon="sap-icon://journey-change" text="Scegliere" class="sapUiSmallMarginBegin" press="onAnnulla" />
+                 <Button id="posto" icon="sap-icon://journey-change" text="Scegliere" class="sapUiSmallMarginBegin" press="onSceglierePosto" />
                 </Panel>
                 </VBox>
         </VBox>
@@ -31,7 +31,7 @@
                     <RadioButton text="Carta/Bancomat" selected="true" />
                     <RadioButton text="Abbonamento" />
 					</RadioButtonGroup>
-                    <Button id="pagare" icon="sap-icon://batch-payments" text="Pagare" class="sapUiSmallMarginBegin" press="onAnnulla" />
+                    <Button id="pagare" icon="sap-icon://batch-payments" text="Pagare" class="sapUiSmallMarginBegin" press="onPagare" />
                 </VBox>
         </VBox>
     </HBox>   

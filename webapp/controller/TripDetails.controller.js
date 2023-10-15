@@ -79,6 +79,22 @@ sap.ui.define([
                         })
                     });
                     this.byId("itinerario").addItem(oTimeline);
+            },
+            onSceglierePosto: function () {
+                if (!this.SceglierePosto || this.SceglierePosto == null) {
+                    this.SceglierePosto = sap.ui.xmlfragment("tripmanagement.tripmanagement.fragments.sceglierePosto", sap.ui.controller(
+                        "tripmanagement.tripmanagement.fragments.sceglierePosto"));
+                    this.getView().addDependent(this.SceglierePosto);
+                }
+                this.SceglierePosto.open();
+            },
+            onPagare: function () {
+                if (!this.Pagare || this.Pagare == null) {
+                    this.Pagare = sap.ui.xmlfragment("tripmanagement.tripmanagement.fragments.biglietto", sap.ui.controller(
+                        "tripmanagement.tripmanagement.fragments.biglietto"));
+                    this.getView().addDependent(this.Pagare);
+                }
+                this.Pagare.open();
             }
            
         });

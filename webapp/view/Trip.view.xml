@@ -9,11 +9,11 @@
         <!-- <Toolbar>
      <content> -->
       <HBox>
-      <Image densityAware="false" id="imgId">
+      <!-- <Image densityAware="false" id="imgId">
        <layoutData>
         <FlexItemData growFactor="1"/>
        </layoutData>
-      </Image>
+      </Image> -->
      </HBox>
        <!-- </content>
      </Toolbar> -->
