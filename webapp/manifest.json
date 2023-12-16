@@ -21,7 +21,7 @@
         "type": "OData",
         "settings": {
           "annotations": [],
-          "localUri": "localService/metadata.xml",
+          "localUri": "localService/metadata.xml",          
           "odataVersion": "2.0"
         }
       }
@@ -72,7 +72,9 @@
       "": {
         "dataSource": "mainService",
         "preload": true,
-        "settings": {}
+        "settings": {
+          "defaultUpdateMethod": "PUT"
+        }
       }
     },
     "resources": {
@@ -102,16 +104,51 @@
         },
         {
           "name": "RouteTrip",
-          "pattern": "RouteTrip/{DataPartenza},{OraPartenza}",
+          "pattern": "RouteTrip/{Partenza},{Arrivo},{DataPartenza},{OraPartenza}",
           "target": [
             "TargetTrip"
           ]
         },
         {
           "name": "RouteTripDetails",
-          "pattern": "RouteTripDetails/{ViaggioID}",
+          "pattern": "RouteTripDetails/{ViaggioID},{Itinerari},{Prezzo},{Posto}",
           "target": [
             "TargetTripDetails"
+          ]
+        },
+        {
+          "name": "RouteTratte",
+          "pattern": "RouteTratte",
+          "target": [
+            "TargetTratte"
+          ]
+        },
+        {
+          "name": "RouteFermate",
+          "pattern": "RouteFermate",
+          "target": [
+            "TargetFermate"
+          ]
+        },
+        {
+          "name": "RouteBus",
+          "pattern": "RouteBus",
+          "target": [
+            "TargetBus"
+          ]
+        },
+        {
+          "name": "RouteViaggi",
+          "pattern": "RouteViaggi",
+          "target": [
+            "TargetViaggi"
+          ]
+        },
+        {
+          "name": "RouteStatistica",
+          "pattern": "RouteStatistica",
+          "target": [
+            "TargetStatistica"
           ]
         }
 
@@ -130,6 +167,13 @@
           "clearControlAggregation": false,
           "viewId": "Trip",
           "viewName": "Trip"
+        },
+        "TargetFermate": {         
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Fermate",
+          "viewName": "Fermate"
         }
         ,
         "TargetTripDetails": {         
@@ -138,6 +182,34 @@
           "clearControlAggregation": false,
           "viewId": "TripDetails",
           "viewName": "TripDetails"
+        },
+        "TargetTratte": {         
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Tratte",
+          "viewName": "Tratte"
+        },
+        "TargetBus": {         
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Bus",
+          "viewName": "Bus"
+        },
+        "TargetViaggi": {         
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Viaggi",
+          "viewName": "Viaggi"
+        },
+        "TargetStatistica": {         
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Statistica",
+          "viewName": "Statistica"
         }
       }
     },

@@ -1,0 +1,36 @@
+<mvc:View controllerName="tripmanagement.tripmanagement.controller.Statistica"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+		xmlns:mc="sap.suite.ui.microchart"
+    xmlns:fb="sap.ui.comp.filterbar">
+    <Page id="page" title="{i18n>Statistica Viaggi}">
+	
+        <content>  
+		<Panel headerText="Schedulazioni mensili" class="sapUiResponsiveMargin" >      
+        <mc:ColumnMicroChart id="Chart" width="100rem" press="press" class="sapUiSmallMargin" allowColumnLabels="true" columns="{path: '/results'}">
+		<!-- <mc:leftTopLabel>
+			<mc:ColumnMicroChartLabel label="0M" color="Good"/>
+		</mc:leftTopLabel>
+		<mc:rightTopLabel>
+			<mc:ColumnMicroChartLabel label="80M" color="Critical"/>
+		</mc:rightTopLabel>
+		<mc:leftBottomLabel>
+			<mc:ColumnMicroChartLabel label="June 1"/>
+		</mc:leftBottomLabel>
+		<mc:rightBottomLabel>
+			<mc:ColumnMicroChartLabel label="June 30"/>
+		</mc:rightBottomLabel> -->
+		<mc:columns>
+		<mc:ColumnMicroChartData  value="{Numero}" label="{Data}"  color="Neutral"/>
+			<!-- <mc:ColumnMicroChartData value="60" label="Gen" color="Error"/>
+			<mc:ColumnMicroChartData value="80" label="Feb"  color="Error"/>
+			<mc:ColumnMicroChartData value="2" label="Mar" color="Error"/>
+			<mc:ColumnMicroChartData value="60" label="Apr" color="Neutral"/>
+			<mc:ColumnMicroChartData value="55" label="Mag" color="Neutral"/> -->
+		</mc:columns>
+	</mc:ColumnMicroChart>
+	 </Panel>
+         </content>
+
+    </Page>
+</mvc:View>

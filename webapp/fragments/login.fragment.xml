@@ -1,0 +1,19 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:t="sap.ui.table" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" xmlns:l="sap.ui.layout" xmlns:micro="sap.suite.ui.microchart">
+    <Dialog title="{i18n>login}" contentWidth="400px" class="sapUiPopupWithPadding" icon=""    
+    beforeOpen="" afterOpen=""
+		beforeClose="" afterClose="handleAfterClosemissedPack">
+        <content>
+             <HBox>
+             <Input id="username"></Input>
+             <Input
+			id="password"
+			type="Password"
+			placeholder="Enter password" />
+             </HBox>     
+        </content>
+        <buttons>
+           <Button text="{i18n>OK}" icon="" press="handleBtOk" /> 
+            <Button text="{i18n>Close}" icon="" press="handleBtClose" />           
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>

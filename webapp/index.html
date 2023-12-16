@@ -10,21 +10,27 @@
             height: 100%;
         }
     </style>
+    <script src="resources/sap/ushell_abap/bootstrap/abap.js"></script>
+    <!-- resources/sap-ui-core.js" -->
+    <!-- data-sap-ui-libs="sap.suite.ui.commons,sap.m,sap.ui.vbm,sap.viz" -->
     <script
-        id="sap-ui-bootstrap"
+        id="sap-ui-bootstrap"        
         src="resources/sap-ui-core.js"
-        data-sap-ui-theme="sap_horizon"
+        
+        data-sap-ui-theme="sap_fiori_3"
+       
         data-sap-ui-resourceroots='{
             "tripmanagement.tripmanagement": "./"
         }'
         data-sap-ui-compatVersion="edge"
         data-sap-ui-async="true"
         data-sap-ui-frameOptions="trusted"
+        data-sap-ui-libs="sap.suite.ui.commons,sap.m,sap.ui.vbm,sap.viz"
     ></script>
-    <script id="locate-reuse-libs" src="./utils/locate-reuse-libs.js"
+   <script id="locate-reuse-libs" src="./utils/locate-reuse-libs.js"
         data-sap-ui-manifest-uri="./manifest.json"
         data-sap-ui-componentName="tripmanagement.tripmanagement">
-    </script> 
+    </script>
 </head>
 <body class="sapUiBody sapUiSizeCompact" id="content">
     <div

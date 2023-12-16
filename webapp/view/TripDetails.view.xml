@@ -11,70 +11,43 @@
                 <VBox id="itinerario">
                 </VBox>
                 <VBox id="assegnazionePosto">
-                
+                <Input 	id="viaggioId" visible="false"/>
+                <Input 	id="itinerarioIniziale" visible="false"/>
+                <Input 	id="prezzoIniziale" visible="false"/>
+                <Input 	id="postoIniziale" visible="false"/>
                  <Panel headerText="Assegnazione Posto" width="15rem" class="sapUiResponsiveMargin" >  
+                 <Label  text="Posto assegnato  :" />
                  <Label id="postoAssegnato" text="1A" />
                  <Button id="posto" icon="sap-icon://journey-change" text="Scegliere" class="sapUiSmallMarginBegin" press="onSceglierePosto" />
-                </Panel>
+                <Label text="Extra costo (5 Euro)" />
+                 <Button  icon="sap-icon://refresh" text="Annullare" class="sapUiSmallMarginBegin" press="onAnnullarePosto" />
+				</Panel>
                 </VBox>
         </VBox>
         <VBox class="sapUiResponsiveMargin">
                 <VBox id="riepilogo" class="sapUiResponsiveMargin">
                 <Panel headerText="Riepilogo" width="15rem" class="sapUiResponsiveMargin" >  
-                <Label id="prezzo" text="58Euro" width="100px" />
+                <Label id="prezzo" text="0Euro" width="13rem" enabled="false"/>
+				<Label text="Nome" labelFor="Nome" />
+				<Input 	id="nome"/>
+				<Label text="Cognome" labelFor="Cognome" />
+				<Input 	id="cognome" />  	
                  
                 </Panel>
                 </VBox>
                 <VBox id="pagamento" class="sapUiResponsiveMargin">
-                	<Label text="Pagamento" labelFor="GroupA" />
+				 <Panel headerText="Pagamento" width="15rem" class="sapUiResponsiveMargin" >  
+                	<!-- <Label text="Pagamento" labelFor="GroupA" /> -->					
                     <RadioButtonGroup id="GroupA" class="sapUiResponsiveMargin">
-                    <RadioButton text="Carta/Bancomat" selected="true" />
-                    <RadioButton text="Abbonamento" />
+                    <RadioButton id="carta" text="Carta/Bancomat" selected="true" />
+                    <RadioButton id="abbonamento" text="Abbonamento" />					
 					</RadioButtonGroup>
+					<Label text="Abbonamento/ Carta credito" labelFor="Abbonamento" />
+				    <Input 	id="abbonamento_carta" /> 
                     <Button id="pagare" icon="sap-icon://batch-payments" text="Pagare" class="sapUiSmallMarginBegin" press="onPagare" />
-                </VBox>
+                </Panel>
+				</VBox>
         </VBox>
-    </HBox>   
-        <!-- <Timeline 		id="idTimeline"		itemFiltering="onItemFiltering"		enableDoubleSided="true"		groupByType="Year"
-		groupBy="dateTime"
-		textHeight="8"
-		sortOldestFirst="true">
-		<content>
-			<TimelineItem
-				userName="Laurent Dubois"				
-				title="Accounts Payables Manager"			
-				icon="sap-icon://activity-individual"				
-				text="Plans, organizes and manages the operations and activities of an accounts payables."
-				dateTime="Date(1371020400000)">
-			</TimelineItem>			
-		</content>
-	</Timeline> -->
-
-
-       	<!-- <c:Timeline
-		id="idTimeline"
-		enableDoubleSided="true"
-		content="{/Employees}"		
-        >
-		<content>
-			<c:TimelineItem
-				id="idTemplateItem"				
-				dateTime="{HireDate}"
-				title="{Title}"
-				text="{Notes}"
-				userName="{FirstName} {LastName}"
-				userPicture="{PhotoPath}"
-				filterValue="{FirstName}">
-			</c:TimelineItem>
-		</content>
-		<filterList>
-			<TimelineFilterListItem
-				id="idTimelineFilterListItem"
-				key="{FirstName}"
-				text="{FirstName} {LastName}">
-			</TimelineFilterListItem>
-		</filterList>
-	</c:Timeline> -->
-         
+    </HBox>           
     </Page>
 </mvc:View>

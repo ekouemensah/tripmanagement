@@ -29,7 +29,9 @@ sap.ui.define([
 				//console.log('handleBtCloseManualWeighingDialog nao implementado');
 			}
 			// that.setViewProperty("/Weigh", parseFloat(that.getViewProperty("/ManualWeigh")));
+			// window.history.go(-3);
 			dialog.close();
+			
 		},
 
 		handlebeforeOpen: function (oEvent) {

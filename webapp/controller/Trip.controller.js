@@ -51,8 +51,8 @@ sap.ui.define([
 
                 var aFilters = [];
                 // var data = this.getParameter("arguments");
-                aFilters.push(new sap.ui.model.Filter("Partenza", sap.ui.model.FilterOperator.EQ, "ROMA"));
-                aFilters.push(new sap.ui.model.Filter("Arrivo", sap.ui.model.FilterOperator.EQ, "MILANO"));
+                aFilters.push(new sap.ui.model.Filter("Partenza", sap.ui.model.FilterOperator.EQ, oEvent.getParameter("arguments").Partenza));
+                aFilters.push(new sap.ui.model.Filter("Arrivo", sap.ui.model.FilterOperator.EQ, oEvent.getParameter("arguments").Arrivo));
                 aFilters.push(new sap.ui.model.Filter("DataPartenza", sap.ui.model.FilterOperator.EQ, oEvent.getParameter("arguments").DataPartenza));
                 aFilters.push(new sap.ui.model.Filter("OraPartenza", sap.ui.model.FilterOperator.EQ, oEvent.getParameter("arguments").OraPartenza));
                 var oFilter = new sap.ui.model.Filter({
@@ -80,8 +80,12 @@ sap.ui.define([
             },
             onNavigatePress: function (oEvent) {
                 var sPath = oEvent.getParameter("row").getBindingContext().getPath();
-                var viaggioID = this.byId('tbTrip').getModel().getProperty(sPath).Id;
-                this.getOwnerComponent().getRouter().navTo("RouteTripDetails", { ViaggioID: viaggioID});
+                var viaggioID = this.byId('tbTrip').getModel().getProperty(sPath).ViaggiId;
+                var Itinerari = this.byId('tbTrip').getModel().getProperty(sPath).Itinerari;
+                var Prezzo = this.byId('tbTrip').getModel().getProperty(sPath).Prezzo; 
+                var Posto = this.byId('tbTrip').getModel().getProperty(sPath).Posto;                 
+                this.getOwnerComponent().getRouter().navTo("RouteTripDetails", { ViaggioID: viaggioID, Itinerari: Itinerari
+                    ,Prezzo: Prezzo,Posto: Posto});
             }
         });
     });

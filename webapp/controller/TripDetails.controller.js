@@ -15,70 +15,56 @@ sap.ui.define([
 
         return Controller.extend("tripmanagement.tripmanagement.controller.TripDetails", {
             onInit: function () {
-                // var cnURI = "/sap/opu/odata/sap/ZSPORTAL_NOTICE_CRUD01_SRV/";
-                // var oNotices = new sap.ui.model.odata.ODataModel(cnURI, false, "jdiaz", "sineti.01");
-                // var oONotices = new sap.ui.model.json.JSONModel();
-                // oNotices.read("/znoticeSet", undefined, undefined, false,
-                //     function(oData, response) {	oONotices.setData(oData);});
-                //        this.getOwnerComponent().setModel(oONotices,"notice");
+                var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+                oRouter.getRoute("RouteTripDetails").attachPatternMatched(this._onRouteMatched, this);
+
+            },
+            _onRouteMatched: function (oEvent) {
+                var viaggioId = oEvent.getParameter("arguments").ViaggioID;
+                this.byId("viaggioId").setValue(viaggioId);
+                this.byId("itinerario").destroyItems();
+                var itinerari = oEvent.getParameter("arguments").Itinerari;
+                this.byId("itinerarioIniziale").setValue(itinerari);
+                var prezzo = oEvent.getParameter("arguments").Prezzo;
+                this.byId("prezzo").setText(prezzo + " Euro");
+                this.byId("prezzoIniziale").setValue(prezzo);
+                var posto = oEvent.getParameter("arguments").Posto;
+                this.byId("postoAssegnato").setText(posto);
+                this.byId("postoIniziale").setValue(posto);
+                const myArray = itinerari.split(" ");
+                var timelineItems = [];
+                var i;
+                for (i = 0; i < myArray.length; i++) {
+                    if (myArray[i] !== '') {
+                        timelineItems.push({ title: myArray[i] });
+                    }
+                }
                 var oData = {
-                    timelineItems: [
-                        {
-                            title: "ROMA",
-                            date: "2023-01-15"
-                        },
-                        {
-                            title: "MILANO",
-                            date: "2023-02-20"
-                        }
-                        // ... more timeline items
-                    ]
+                    timelineItems
                 };
-                // Create a JSON model and set the data
-            var oModel = new sap.ui.model.json.JSONModel(oData);
-            this.getView().setModel(oModel);
-                // var oItem = new sap.suite.ui.commons.TimelineItem({
-                //     dateTime:			"Date(1371020400000)" ,
-                //     text:				"test" ,
-                //  //   userName:	         	{notice>Subhead}",
-                //    // userPicture:		"resources/2018-03-13_12-04-04.jpg",
-                //     title:				"" ,
-                //     icon:				"sap-icon://edit",
-                //     // filterValue:		"Filter Value",
-                //     userNameClickable:	true
-                //             });
+                var oModel = new sap.ui.model.json.JSONModel(oData);
+                this.getView().setModel(oModel);
                 var oTimeline = new sap.suite.ui.commons.Timeline({
-                        alignment:				"Right" ,
-                    enableDoubleSided:		false ,
-                    axisOrientation:		"Vertical", 
-                    width:					"300px", 
-                    // height:					"270.7421875px",
-                    enableBusyIndicator:	true,
-                    enableScroll:			false,
-                    // forceGrowing:			true,
-                    showFilterBar : false,
-                    groupBy:				"",
-                    // growingThreshold:		2,
-                    // showHeaderBar:			true,
-                    showIcons:				true,
-                    // showSearch:				true,
-                    // sort:					true,
-                    sortOldestFirst:		false
-                            });
-                    // oTimeline.bindAggregation("content", {
-                    //                 path: "notice>/results",
-                    //                 template: oItem
-                    //                                     });
-                    // oTimeline.setModel(oONotices);
-                    // oTimeline.bindAggregation("content", oItem);
-                    oTimeline.bindAggregation("content", {
-                        path: "/timelineItems",
-                        template:  new sap.suite.ui.commons.TimelineItem({
-                            title: "{title}",
-                            dateTime: "{date}"
-                        })
-                    });
-                    this.byId("itinerario").addItem(oTimeline);
+                    alignment: "Right",
+                    enableDoubleSided: false,
+                    axisOrientation: "Vertical",
+                    width: "300px",
+                    enableBusyIndicator: true,
+                    enableScroll: false,
+                    showFilterBar: false,
+                    groupBy: "",
+                    showIcons: true,
+                    sortOldestFirst: false
+                });
+                oTimeline.bindAggregation("content", {
+                    path: "/timelineItems",
+                    template: new sap.suite.ui.commons.TimelineItem({
+                        title: "{title}",
+                        dateTime: "{date}"
+                    })
+                });
+                this.byId("itinerario").addItem(oTimeline);
+
             },
             onSceglierePosto: function () {
                 if (!this.SceglierePosto || this.SceglierePosto == null) {
@@ -88,7 +74,71 @@ sap.ui.define([
                 }
                 this.SceglierePosto.open();
             },
+            onAnnullarePosto: function () {
+                this.byId("postoAssegnato").setText(this.byId("postoIniziale").getValue());
+                this.byId("prezzo").setText(this.byId("prezzoIniziale").getValue() + " Euro");
+            },
             onPagare: function () {
+                var cliente = "";
+                if (this.byId("GroupA").getSelectedIndex() == 0) {
+                    if (this.byId("nome").getValue() == "" || this.byId("cognome").getValue() == "" || this.byId("abbonamento_carta").getValue() == "") {
+                        sap.m.MessageToast.show("Inserire nome, cognome e coordinate bancarie");
+                        return;
+                    }
+                }
+                if (this.byId("GroupA").getSelectedIndex() == 1) {
+                    if (this.byId("abbonamento_carta").getValue() == "") {
+                        sap.m.MessageToast.show("Inserire numero abbonamento");
+                        return;
+                    }
+                    var sURI = "/sap/opu/odata/sap/ZTRIPMANAGEMENT_SRV";
+                    var oDataModel = new sap.ui.model.odata.ODataModel(sURI, true);
+                    oDataModel.callFunction("/CheckAbbonamento", "POST",
+                        {
+                            AbbonamentoId: this.byId("abbonamento_carta").getValue(),
+                            ViaggioId: this.byId("viaggioId").getValue(),
+
+                        }, null,
+                        function (oDataClose, responseClose) {
+                            var ret = oDataClose.Return;
+                            if (ret.substring(0, 2) == "KO") {
+                                sap.m.MessageToast.show(ret, {
+                                    duration: 5000
+                                })
+                                return;
+                            } else {
+                                cliente = ret;
+                            }
+
+                        },
+                        function (oError) {
+                            sap.m.MessageToast.show(oError);
+                            return;
+                        });
+                }
+                if (this.byId("GroupA").getSelectedIndex() == 1 && cliente == "") {
+                    return;
+                }   
+                 var sURI = "/sap/opu/odata/sap/ZTRIPMANAGEMENT_SRV";
+                var oDataModel = new sap.ui.model.odata.ODataModel(sURI, true);
+                oDataModel.callFunction("/Prenotare", "POST",
+                    {
+                        ClienteId: cliente,
+                        Itinerario: this.byId("itinerarioIniziale").getValue(),
+                        Posto: this.byId("postoAssegnato").getText(),
+                        ViaggioId: this.byId("viaggioId").getValue(),
+                        Prezzo: this.byId("prezzo").getText(),
+                    }, null,
+                    function (oDataClose, responseClose) {
+                        var ret = oDataClose.Return;
+
+                        sap.m.MessageToast.show(ret, {
+                            duration: 5000
+                        })
+                    },
+                    function (oError) {
+
+                    });
                 if (!this.Pagare || this.Pagare == null) {
                     this.Pagare = sap.ui.xmlfragment("tripmanagement.tripmanagement.fragments.biglietto", sap.ui.controller(
                         "tripmanagement.tripmanagement.fragments.biglietto"));
@@ -96,6 +146,6 @@ sap.ui.define([
                 }
                 this.Pagare.open();
             }
-           
+
         });
     });

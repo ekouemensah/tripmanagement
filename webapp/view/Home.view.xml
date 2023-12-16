@@ -6,10 +6,17 @@
 
         <content>
         <HBox justifyContent="End" height="15%">
-         <Button icon="sap-icon://log" text="Log in" class="sapUiSmallMarginBegin" press="onRefresh" />
+        <Button text="BUS" id ="bus" class="sapUiSmallMarginBegin" icon="sap-icon://bus-public-transport" press="onBus" visible="false" />    
+             <Button text="FERMATE" id="fermate" class="sapUiSmallMarginBegin" icon="sap-icon://stop" press="onFermate" visible="false" />    
+             <Button text="TRATTE" id="tratte" class="sapUiSmallMarginBegin" icon="sap-icon://crossed-line-chart" press="onTratte" visible="false" /> 
+             <Button text="VIAGGI" id="viaggi" class="sapUiSmallMarginBegin" icon="sap-icon://activate" press="onViaggi" visible="false" />    
+             <Button text="STATISTICA" id="statistica" class="sapUiSmallMarginBegin" icon="sap-icon://manager-insight" press="onStatistica"  visible="false"/>  
+         <!-- <Button icon="sap-icon://menu" text="Menu" class="sapUiSmallMarginBegin" press="onMenu" /> -->
+         <Button icon="sap-icon://log" text="Log in" class="sapUiSmallMarginBegin" press="onLogin" />
          </HBox>
          <HBox height="25%">
          <VBox>
+         <Input 	id="id_partenza" visible="false"/>
          	<Label text="Da" labelFor="productInput" />
 		<Input 
 			id="partenza"
@@ -30,33 +37,35 @@
 					class="sapUiSmallMarginBottom"
                     valueFormat="dd.MM.yyy"
 					showFooter="true"/>
-        <CheckBox text="Ritorno" />
+        <!-- <CheckBox text="Ritorno" /> -->
          </VBox>
          <VBox>
+         <Input 	id="id_arrivo" visible="false"/>
          <Label text="A" labelFor="productInput" />
 		<Input 
 			id="arrivo"
 			placeholder="Arrivo"
 			showSuggestion="true"
 			showValueHelp="true"
-			valueHelpRequest=".onValueHelpRequest"
+			valueHelpRequest=".onValueHelpRequestPartenza"
             >
 			<!-- <suggestionItems>
 				<core:Item text="{Name}" />
 			</suggestionItems> -->
 			
 		</Input>
-        <TimePicker	id="OraPartenza" />
+        <TimePicker	id="OraPartenza" displayFormat = "HH:mm:ss" format = "HH:mm:ss"/>
          </VBox>
         
          <VBox>
-         <Panel headerText="Passegeri" width="15rem" class="sapUiResponsiveMargin" >
-         <Label text="Adulti" design="Bold" />
+         <Panel headerText="Ricerca" width="25rem" class="sapUiResponsiveMargin" >
+         <!-- <Label text="Adulti" design="Bold" />
             <StepInput class="leftDescription"	value="1"	min="1" max="20" />
             <Label text="Bambini" design="Bold" />
-            <StepInput class="leftDescription" value="0"	min="0"	max="20" />
+            <StepInput class="leftDescription" value="0"	min="0"	max="20" /> -->
             <HBox justifyContent="Center" height="35%">
             <Button icon="sap-icon://car-rental" text="Cerca Viaggi" class="sapUiSmallMarginBegin" press="onCercaViaggi" />
+            <Button text="Abbonamenti" class="sapUiSmallMarginBegin" icon="sap-icon://add-calendar" press="onAbbonamenti" /> 
             <Button icon="sap-icon://reset" text="Annulla" class="sapUiSmallMarginBegin" press="onAnnulla" />
             </HBox>
             </Panel>

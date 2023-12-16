@@ -1,0 +1,20 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:t="sap.ui.table" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" xmlns:l="sap.ui.layout" xmlns:micro="sap.suite.ui.microchart">
+    <Dialog title="{i18n>MenuAdmin}" contentWidth="400px" class="sapUiPopupWithPadding" icon=""    
+    beforeOpen="" afterOpen=""
+		beforeClose="" afterClose="handleAfterClosemissedPack">
+        <content>
+             <HBox>
+             <VBox class="sapUiResponsiveMargin">
+             <Button text="BUS" icon="sap-icon://bus-public-transport" press="handleBtClose" />    
+             <Button text="FERMATE" icon="sap-icon://stop" press="handleBtClose" />    
+             <Button text="TRATTE" icon="sap-icon://crossed-line-chart" press="handleBtTratte" /> 
+             <Button text="VIAGGI" icon="sap-icon://activate" press="handleBtClose" />    
+             <Button text="STATISTICA" icon="sap-icon://manager-insight" press="handleBtClose" />              
+             </VBox>             
+             </HBox>     
+        </content>
+        <buttons>
+            <Button text="{i18n>Close}" icon="sap-icon://decline" press="handleBtClose" />           
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>

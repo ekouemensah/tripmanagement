@@ -1,0 +1,65 @@
+<mvc:View controllerName="tripmanagement.tripmanagement.controller.Viaggi"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:fb="sap.ui.comp.filterbar">
+    <Page id="page" title="{i18n>Schedulazione Viaggi}">
+        <content>        
+         <HBox  class="sapUiResponsiveMargin"> 
+		 <Input 	id="id_partenza" visible="false"/>        
+         	<Label text="Da" labelFor="productInput" />
+		<Input id="partenza" placeholder="Partenza" showSuggestion="true" 	showValueHelp="true" valueHelpRequest=".onValueHelpRequest">
+		</Input>
+		<Input 	id="id_arrivo" visible="false"/>
+        <Label text="A" labelFor="productInput" />
+		<Input id="arrivo" placeholder="Arrivo" showSuggestion="true" 	showValueHelp="true" 	valueHelpRequest=".onValueHelpRequestPartenza">
+		</Input>        
+        </HBox>        
+        <HBox class="sapUiResponsiveMargin">  
+        <Label text="Dal"/>      
+        <DatePicker id="DataPartenza1" placeholder="Data" change="handleChange" 	class="sapUiSmallMarginBottom"   valueFormat="dd.MM.yyy"
+					showFooter="true"/>        
+         <TimePicker	id="OraPartenza1" displayFormat = "HH:mm:ss" format = "HH:mm:ss" />
+         <Label text="Al"/>      
+        <DatePicker id="DataPartenza2" placeholder="Data" change="handleChange" 	class="sapUiSmallMarginBottom"   valueFormat="dd.MM.yyy"
+					showFooter="true"/>        
+         <TimePicker	id="OraPartenza2"  displayFormat = "HH:mm:ss" format = "HH:mm:ss"/>
+         </HBox>
+		 <HBox  class="sapUiResponsiveMargin">          	
+        <Label text="Bus" />
+		<Input  id="bus" placeholder="Bus" showSuggestion="true" showValueHelp="true" valueHelpRequest=".onValueHelpRequestBus">
+		</Input>
+        </HBox>
+         <HBox class="sapUiResponsiveMargin"> 
+         </HBox>
+         <Table id="tableId1" mode="Delete" delete="deleteRow" >
+							<headerToolbar>
+								<Toolbar>
+									<ToolbarSpacer></ToolbarSpacer>
+									<Button icon="sap-icon://add" type="Emphasized" press="onAdd"/>
+                                    <Button icon="sap-icon://search" type="Emphasized" press="onList"/>
+								</Toolbar>
+							</headerToolbar>
+							<columns>
+								<Column>
+									<Text text="Cancellare viaggio"/>
+								</Column>
+								<Column>
+									<Text text="DataPartenza"/>                            
+								</Column>
+                                <Column>
+									<Text text="OraPartenza"/>                            
+								</Column>
+                                <Column>
+									<Text text="Bus"/>                            
+								</Column>
+                                <Column>
+									<Text text="Partenza"/>                            
+								</Column>
+                                 <Column>
+									<Text text="Arrivo"/>                            
+								</Column>								
+							</columns>
+						</Table>
+         </content>
+    </Page>
+</mvc:View>

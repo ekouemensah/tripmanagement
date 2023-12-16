@@ -1,59 +1,26 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:t="sap.ui.table" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" xmlns:l="sap.ui.layout" xmlns:micro="sap.suite.ui.microchart">
     <Dialog title="{i18n>sceglierePosto}" contentWidth="400px" class="sapUiPopupWithPadding" icon=""    
-    beforeOpen="" afterOpen=""
-		beforeClose="" afterClose="handleAfterClosemissedPack">
+    beforeOpen="handlebeforeOpen" afterOpen=""
+		beforeClose="" afterClose="">
         <content>
              <HBox>
-             <VBox >
-             <Button text="1A" icon="" press="handleBtClose" />    
-             <Button text="2A" icon="" press="handleBtClose" />    
-             <Button text="3A" icon="" press="handleBtClose" />    
-             <Button text="4A" icon="" press="handleBtClose" />    
-             <Button text="5A" icon="" press="handleBtClose" />    
-             <Button text="6A" icon="" press="handleBtClose" />    
-             <Button text="7A" icon="" press="handleBtClose" />    
-             <Button text="8A" icon="" press="handleBtClose" />    
-             <Button text="9A" icon="" press="handleBtClose" />    
-             </VBox>
-             <VBox>
-             <Button text="1B" icon="" press="handleBtClose" />    
-             <Button text="2B" icon="" press="handleBtClose" />    
-             <Button text="3B" icon="" press="handleBtClose" />    
-             <Button text="4B" icon="" press="handleBtClose" />    
-             <Button text="5B" icon="" press="handleBtClose" />    
-             <Button text="6B" icon="" press="handleBtClose" />    
-             <Button text="7B" icon="" press="handleBtClose" />    
-             <Button text="8B" icon="" press="handleBtClose" />    
-             <Button text="9B" icon="" press="handleBtClose" />    
+             <VBox id="Vbox1">            
              </VBox>
              <VBox   class="sapUiResponsiveMargin">
              </VBox>
-             <VBox >
-             <Button text="1C" icon="" press="handleBtClose" />    
-             <Button text="2C" icon="" press="handleBtClose" />    
-             <Button text="3C" icon="" press="handleBtClose" />    
-             <Button text="4C" icon="" press="handleBtClose" />    
-             <Button text="5C" icon="" press="handleBtClose" />    
-             <Button text="6C" icon="" press="handleBtClose" />    
-             <Button text="7C" icon="" press="handleBtClose" />    
-             <Button text="8C" icon="" press="handleBtClose" />    
-             <Button text="9C" icon="" press="handleBtClose" />    
+             <VBox id="Vbox2">             
              </VBox>
-             <VBox>
-             <Button text="1D" icon="" press="handleBtClose" />    
-             <Button text="2D" icon="" press="handleBtClose" />    
-             <Button text="3D" icon="" press="handleBtClose" />    
-             <Button text="4D" icon="" press="handleBtClose" />    
-             <Button text="5D" icon="" press="handleBtClose" />    
-             <Button text="6D" icon="" press="handleBtClose" />    
-             <Button text="7D" icon="" press="handleBtClose" />    
-             <Button text="8D" icon="" press="handleBtClose" />    
-             <Button text="9D" icon="" press="handleBtClose" />    
+             <VBox   class="sapUiResponsiveMargin">
              </VBox>
+             <VBox   class="sapUiResponsiveMargin">
+             </VBox>
+             <VBox id="Vbox3">             
+             </VBox>             
              </HBox>     
         </content>
         <buttons>
-            <Button text="{i18n>Close}" icon="" press="handleBtClose" />           
+            <Button text="{i18n>Close}" icon="" press="handleBtClose" />  
+            <!-- <Button text="{i18n>Annulare}" icon="" press="handleBtReset" />            -->
         </buttons>
     </Dialog>
 </core:FragmentDefinition>

@@ -1,0 +1,34 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:t="sap.ui.table" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" xmlns:l="sap.ui.layout" xmlns:micro="sap.suite.ui.microchart">
+    <Dialog title="{i18n>Abbonamento}" contentWidth="400px" class="sapUiPopupWithPadding" icon=""    
+    beforeOpen="" afterOpen=""
+		beforeClose="" afterClose="handleAfterClosemissedPack">
+        <content>
+             <VBox>             
+         <RadioButtonGroup id="rbg2" columns="2"  class="sapUiMediumMarginBottom">
+			<RadioButton id="RB2-1" selected="true" text="Km" />			
+			<RadioButton id="RB2-3" text="Viaggi" />
+		</RadioButtonGroup>
+             <ComboBox id="choice">				
+				<core:Item key="10" text="10" />
+                <core:Item key="20" text="20" />
+                <core:Item key="30" text="30" /> 
+                <core:Item key="1000" text="1000" />
+                <core:Item key="2000" text="2000" />
+                <core:Item key="3000" text="3000" />               
+			</ComboBox>  
+            <Input 	id="Da_Id" visible="false"/>  
+            <Input id="Da" placeholder="Da" showSuggestion="true" 	showValueHelp="true" valueHelpRequest=".onValueHelpRequest"></Input>  
+            <Input 	id="A_Id" visible="false"/>  
+            <Input id="A" placeholder="A" showSuggestion="true" 	showValueHelp="true" 	valueHelpRequest=".onValueHelpRequestPartenza"></Input>       
+            <Input id="nome" placeholder="Nome"></Input>
+            <Input id="cognome" placeholder="Cognome"></Input>
+            <Input id="email" placeholder="E-mail"></Input>
+            <Label id="abbonamento"/>
+             </VBox>     
+        </content>
+        <buttons>
+           <Button text="{i18n>OK}" icon="" press="handleBtOk" /> 
+            <Button text="{i18n>Close}" icon="" press="handleBtClose" />           
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>

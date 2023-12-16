@@ -1,0 +1,16 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:t="sap.ui.table" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" xmlns:l="sap.ui.layout" xmlns:micro="sap.suite.ui.microchart">
+    <Dialog title="{i18n>Bus}" contentWidth="400px" class="sapUiPopupWithPadding" icon=""    
+    beforeOpen="handlebeforeOpen" afterOpen=""
+		beforeClose="" afterClose="">
+        <content>
+     <Image densityAware="false" id="imgId">
+       <layoutData>
+        <FlexItemData growFactor="1"/>
+       </layoutData>
+      </Image>
+        </content>
+        <buttons>
+            <Button text="{i18n>Close}" icon="" press="handleBtClose" />           
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>
